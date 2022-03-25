@@ -12,8 +12,18 @@ export class PostResolver {
   createPost(@Args('createPostInput') createPostInput: CreatePostInput) {
     return this.postService.create(createPostInput);
   }
-
-  @Query(() => [Post], { name: 'post' })
+/*
+query{
+    posts{
+        id
+        user{
+            id
+            exampleField
+        }
+    }
+}
+*/
+  @Query(() => [Post], { name: 'posts' })
   findAll() {
     return this.postService.findAll();
   }

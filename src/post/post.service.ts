@@ -16,11 +16,11 @@ export class PostService {
   }
 
   findAll() {
-    return `This action returns all post`;
+    return this.postRepo.find({relations: ["user"]});
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} post`;
+    return this.postRepo.findOne(id, {relations: ["user"]});
   }
 
   update(id: number, updatePostInput: UpdatePostInput) {

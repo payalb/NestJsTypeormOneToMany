@@ -14,7 +14,7 @@ export class Post extends BaseEntity{
   @ManyToOne(()=> User, user => user.posts, { cascade: true})
   @JoinColumn({name: "user_id", referencedColumnName: "id"})
   @Field(()=> User)
-  user!: User
+  user: User
   @Field(()=> Int)
   user_id?: number
 }

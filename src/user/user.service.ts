@@ -15,12 +15,20 @@ export class UserService {
     return this.userRepo.save(createUserInput)
   }
 
-  findAll() {
-    if(Math.random()>0.5){
-      throw new HttpException("No user found", HttpStatus.NO_CONTENT)
-    }else{
-    return `This action returns all user`;
+  /**
+   * 
+   *  query{
+    users{
+        id
+        exampleField
+        posts{
+            id
+        }
     }
+}
+   */
+  findAll() : Promise<User[]>{
+    return this.userRepo.find({relations:["posts"]})
   }
 
   findOne(id: number) {

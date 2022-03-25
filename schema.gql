@@ -34,8 +34,9 @@ type Post {
 type Query {
   getHello: String!
   post(id: Int!): Post!
+  posts: [Post!]!
   user(id: Int!): User!
-  users: String!
+  users: [User!]!
 }
 
 input UpdatePostInput {

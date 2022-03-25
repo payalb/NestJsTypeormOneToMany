@@ -13,5 +13,5 @@ export class User extends BaseEntity{
   exampleField: number;
   @Field(()=> [Post])
   @OneToMany(()=> Post, post => post.user)
-  posts: [Post]
+  posts: Post[]
 }
